@@ -1,0 +1,10 @@
+<?php if ($block->getMobile()): ?>
+    <div class="block">
+        <div class="title">
+            <strong><?= __('Mobile') ?></strong>
+        </div>
+        <div class="content" id="mobile-info">
+            <?= $block->escapeHtml($block->getMobile()) ?>
+        </div>
+    </div>
+<?php endif; ?>

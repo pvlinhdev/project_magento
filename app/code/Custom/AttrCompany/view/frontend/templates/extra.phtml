@@ -1,0 +1,12 @@
+<div class="field company required">
+    <label class="label" for="company">
+      <span><?= $block->escapeHtml(__('Company Account')) ?></span>
+    </label>
+    <div class="control">
+       <input type="text" 
+       name="company" id="company" value="" 
+       title="<?= $block->escapeHtmlAttr(__('Company Account')) ?>" 
+       class="input-text" 
+       data-validate="{required:true}">
+    </div>
+</div>

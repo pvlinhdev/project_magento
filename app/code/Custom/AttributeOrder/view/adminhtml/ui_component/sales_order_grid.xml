@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="sales_order_columns">
+        <column name="order_attribute">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="filter" xsi:type="string">select</item>
+                    <item name="label" xsi:type="string" translate="true">Order Attribute</item>
+                    <item name="options" xsi:type="array">
+                        <item name="Yes" xsi:type="array">
+                            <item name="value" xsi:type="string">Yes</item>
+                            <item name="label" xsi:type="string" translate="true">Yes</item>
+                        </item>
+                        <item name="No" xsi:type="array">
+                            <item name="value" xsi:type="string">No</item>
+                            <item name="label" xsi:type="string" translate="true">No</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>
