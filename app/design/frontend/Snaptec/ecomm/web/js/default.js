@@ -1,28 +1,81 @@
-// alert("Hello! I am an alert box!!");
+require([
+    'jquery',
+    'Magento_Customer/js/customer-data'
+], function ($, customerData) {
+    'use strict';
 
-// require(['jquery'], function ($) {
-//     $(document).ready(function () {
-//         $('.qty').each(function () {
-//             var $qty = $(this);
-//             var $input = $qty.find('input');
-//             var $buttonMinus = $('<button type="button" class="quantity-button quantity-down">-</button>');
-//             var $buttonPlus = $('<button type="button" class="quantity-button quantity-up">+</button>');
+    $(document).ready(function () {
+        $('.cart.item').each(function () {
+            var item = $(this);
+            var qtyInput = item.find('.qty input');
+            var incrementButton = item.find('.increase-qty');
+            var decrementButton = item.find('.decrease-qty');
 
-//             $input.after($buttonMinus);
-//             $input.after($buttonPlus);
+            incrementButton.click(function () {
+                var currentQty = parseFloat(qtyInput.val());
+                var newQty = currentQty + 1;
+                qtyInput.val(newQty); // Update input value
+                updateQty(item, newQty);
+            });
 
-//             $buttonMinus.on('click', function () {
-//                 var value = parseInt($input.val(), 10);
-//                 value = isNaN(value) ? 0 : value;
-//                 value = value <= 1 ? 1 : value - 1;
-//                 $input.val(value);
-//             });
+            decrementButton.click(function () {
+                var currentQty = parseFloat(qtyInput.val());
+                if (currentQty > 1) {
+                    var newQty = currentQty - 1;
+                    qtyInput.val(newQty); // Update input value
+                    updateQty(item, newQty);
+                }
+            });
 
-//             $buttonPlus.on('click', function () {
-//                 var value = parseInt($input.val(), 10);
-//                 value = isNaN(value) ? 1 : value + 1;
-//                 $input.val(value);
-//             });
-//         });
-//     });
-// });
+            function updateQty(item, qty) {
+                var itemId = item.find('[data-cart-item-id]').data('cart-item-id');
+                var formData = {
+                    'item_id': itemId,
+                    'item_qty': qty
+                };
+
+                $.ajax({
+                    url: '/checkout/cart/updateItemQty',
+                    data: formData,
+                    type: 'post',
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res.success) {
+                            // Reload cart data
+                            var sections = ['cart'];
+                            customerData.reload(sections, true);
+                        } else {
+                            console.error('Error updating quantity');
+                        }
+                    },
+                    error: function () {
+                        console.error('Error updating quantity');
+                    }
+                });
+            }
+        });
+    });
+
+    return function () {
+        $(document).on('click', '.increase-qty, .decrease-qty', function () {
+            updateCartPrice();
+        });
+
+        function updateCartPrice() {
+            $.ajax({
+                url: '/updatecart/cart/updatetotal', // Thay đổi đường dẫn này thành URL của controller của bạn
+                type: 'get',
+                dataType: 'json',
+                success: function (response) {
+                    // Xử lý dữ liệu phản hồi và cập nhật giá giỏ hàng trên giao diện người dùng
+                    if (response && response.total) {
+                        $('.cart-subtotal').text(response.total);
+                    }
+                },
+                error: function () {
+                    console.error('Lỗi cập nhật tổng số giỏ hàng');
+                }
+            });
+        }
+    };
+});
