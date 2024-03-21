@@ -1,7 +1,44 @@
 .page-header .panel.wrapper {
-    background-color: #4a47f9 !important;
+    background-color: black !important;
 }
 
-.header .logo img{
+.page-header {
+    background: #C31C39;
+}
+
+.panel.wrapper {
+    border-bottom: 0px !important;
+}
+
+.navigation {
+    text-align: center !important;
+    background: white !important;
+}
+
+.navigation ul li {
+    font-family: 'Tajawal';
+}
+
+.nav-sections-items {
+    background: white !important;
+}
+
+.navigation>li>a {
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: uppercase;
+}
+
+.logo {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.breadcrumbs{
     text-align: center;
-}  
+}
+
+.page-title-wrapper{
+    display: none;
+}

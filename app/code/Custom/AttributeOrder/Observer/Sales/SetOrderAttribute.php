@@ -3,15 +3,16 @@ namespace Custom\AttributeOrder\Observer\Sales;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Sales\Api\OrderRepositoryInterface;
 
 class SetOrderAttribute implements ObserverInterface
 {
-    protected $logger;
+    protected $orderRepository;
 
     public function __construct(
-        \Psr\Log\LoggerInterface $logger
+        OrderRepositoryInterface $orderRepository
     ) {
-        $this->logger = $logger;
+        $this->orderRepository = $orderRepository;
     }
 
     public function execute(Observer $observer)
@@ -21,7 +22,7 @@ class SetOrderAttribute implements ObserverInterface
             $grandTotal = $order->getGrandTotal();
             $customOrderAttribute = $grandTotal >= 200 ? "Yes" : "No";
             $order->setData('order_attribute', $customOrderAttribute);
-            $order->save();
+            $this->orderRepository->save($order);
         } catch (\Exception $e) {
             $this->logger->error($e->getMessage());
         }
