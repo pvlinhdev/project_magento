@@ -15,6 +15,12 @@
     background: white !important;
 }
 
+.navigation .level1, 
+.navigation .level2{
+    text-align: left !important;
+    background: white !important;
+}
+
 .navigation ul li {
     font-family: 'Tajawal';
 }
@@ -41,4 +47,123 @@
 
 .page-title-wrapper{
     display: none;
+}
+
+.page-footer{
+    background: black !important;
+}
+
+.pagebuilder-column-group{
+    color: rgb(255, 255, 255) !important;
+
+}
+
+.footer{
+    display: none;
+}
+
+.copyright{
+    background: white;
+    color: black;
+}
+
+.copyright span{
+    margin: 10px 30px 10px 30px;
+    font-size: 16px;
+    color: #000;
+    float: left;
+}
+
+.social-links {
+    text-align: center;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px; /* Điều chỉnh khoảng cách giữa các ảnh */
+}
+
+.submenu{
+    height: 200px;
+    max-height: 200px;
+    float: left;
+}
+
+.items li a{
+    color: black !important;
+}
+
+.product-item .tocart{
+    border-radius: 15px;
+    background: #d0cfcf;
+    color: white;
+    border: solid #ffff;
+}
+
+.action.primary:hover{
+    background: #a31624;
+    border-color: #a31624;
+    color: #ffffff;
+}
+
+.action.primary:focus{
+    background: black;
+    border: 1px solid white;
+    color: #ffffff;
+}
+
+.action.primary{
+    background: black;
+    border: 1px solid white;
+}
+
+.filter-options-content{
+    display: contents !important;
+}
+
+#search{
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.action.showcart:before{
+    color: #ffffff ;
+}
+
+.action.showcart:hover{
+    color: #000000 ;
+}
+
+.minicart-items .product-item-name a:hover {
+    color: #a31624;
+    text-decoration: none;
+}
+
+.minicart-items .product-item-name a{
+    color: #000;
+}
+
+.block-minicart .secondary{
+    padding: 10px;
+    background: white;
+    border: solid 2px black;
+}
+
+.block-minicart .secondary:hover{
+    padding: 10px;
+    background: #a31624;
+    border: solid 2px #a31624;
+    color: #ffffff;
+}
+
+.block-minicart .secondary a{
+    color: #000;
+}
+.block-minicart .secondary a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.block-minicart .block-content > .actions > .secondary{
+    margin: 0px 13px;
 }
