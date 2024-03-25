@@ -183,7 +183,7 @@
 }
 
 .modes-mode:last-child{
-    color: #b7b5b5 !important;
+    /* color: #b7b5b5 !important; */
     border: solid 1px !important;
     background: white !important;
     padding: 10px;
@@ -258,4 +258,35 @@
 
 .products-list .product-item-details{
     text-align: left;
+}
+
+.minicart-wrapper{
+    margin-top: 5px;
+}
+
+.modes-mode{
+    border-radius: 6px !important;
+    padding: 9px !important;
+    width: 37px;
+    margin-right: 5px;
+    border: solid 1px !important;
+    background: white !important;
+}
+
+.modes-mode:hover{
+    background: red;
+}
+
+.navigation .level0 .submenu a{
+    color: #000;
+}
+
+.level-top:hover{
+    color:#a31624 !important
+}
+
+.navigation li.level1:hover, 
+.navigation li.level2:hover{
+    background: white !important;
+    border-left: solid 3px red;
 }
